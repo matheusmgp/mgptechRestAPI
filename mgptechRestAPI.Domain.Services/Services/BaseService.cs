@@ -13,6 +13,7 @@ namespace mgptechRestAPI.Domain.Services.Services
         {
             _repository = repository;
         }
+
         public void Create(Entity entity)
         {
             _repository.Create(entity);
@@ -25,7 +26,7 @@ namespace mgptechRestAPI.Domain.Services.Services
 
         public async Task<Entity> FindByIdAsync(int id)
         {
-           return await  _repository.FindByIdAsync(id);
+            return await _repository.FindByIdAsync(id);
         }
 
         public bool SaveChanges()

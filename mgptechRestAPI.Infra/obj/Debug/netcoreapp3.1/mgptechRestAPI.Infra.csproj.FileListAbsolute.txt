@@ -2,3 +2,16 @@ E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\b
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\bin\Debug\netcoreapp3.1\mgptechRestAPI.Infra.dll
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\obj\Debug\netcoreapp3.1\mgptechRestAPI.Infra.AssemblyInfoInputs.cache
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\obj\Debug\netcoreapp3.1\mgptechRestAPI.Infra.AssemblyInfo.cs
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\bin\Debug\netcoreapp3.1\mgptechRestAPI.Infra.pdb
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Core.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Core.pdb
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.pdb
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\obj\Debug\netcoreapp3.1\mgptechRestAPI.Infra.csprojAssemblyReference.cache
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\obj\Debug\netcoreapp3.1\mgptechRestAPI.Infra.csproj.CopyComplete
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\obj\Debug\netcoreapp3.1\mgptechRestAPI.Infra.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\obj\Debug\netcoreapp3.1\mgptechRestAPI.Infra.pdb
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\bin\Debug\netcoreapp3.1\mgptechRestAPI.Application.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\bin\Debug\netcoreapp3.1\mgptechRestAPI.Application.pdb
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Service.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Service.pdb

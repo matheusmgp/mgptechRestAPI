@@ -1,19 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="CrossCutting\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\mgptechRestAPI.Application\mgptechRestAPI.Application.csproj" />
     <ProjectReference Include="..\mgptechRestAPI.Domain.Core\mgptechRestAPI.Domain.Core.csproj" />
+    <ProjectReference Include="..\mgptechRestAPI.Domain.Services\mgptechRestAPI.Domain.Service.csproj" />
     <ProjectReference Include="..\mgptechRestAPI.Domain\mgptechRestAPI.Domain.csproj" />
   </ItemGroup>
 

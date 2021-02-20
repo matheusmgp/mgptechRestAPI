@@ -2,7 +2,6 @@
 {
     public class Ambiente : BaseEntity
     {
-
         public string NomeFantasia { get; set; }
         public string RazaoSocial { get; set; }
         public string Cnpj { get; set; }

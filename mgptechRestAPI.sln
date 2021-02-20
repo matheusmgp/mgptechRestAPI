@@ -11,17 +11,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{55546D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{6F70F42B-25A6-4AF8-86DC-0C99340FEB9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgptechRestAPI.API", "mgptechRestAPI.API\mgptechRestAPI.API.csproj", "{725BE11B-E4BC-4DC4-84A2-D95CF9DE097E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgptechRestAPI.API", "mgptechRestAPI.API\mgptechRestAPI.API.csproj", "{725BE11B-E4BC-4DC4-84A2-D95CF9DE097E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgptechRestAPI.Application", "mgptechRestAPI.Application\mgptechRestAPI.Application.csproj", "{5EDBE495-539C-4A9D-8E42-796E3AF366CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgptechRestAPI.Application", "mgptechRestAPI.Application\mgptechRestAPI.Application.csproj", "{5EDBE495-539C-4A9D-8E42-796E3AF366CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgptechRestAPI.Domain", "mgptechRestAPI.Domain\mgptechRestAPI.Domain.csproj", "{1FEAF798-7CAF-45E5-9F00-833624FF96F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgptechRestAPI.Domain", "mgptechRestAPI.Domain\mgptechRestAPI.Domain.csproj", "{1FEAF798-7CAF-45E5-9F00-833624FF96F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgptechRestAPI.Domain.Core", "mgptechRestAPI.Domain.Core\mgptechRestAPI.Domain.Core.csproj", "{BF97580E-69DF-4692-B4ED-805E118DA3B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgptechRestAPI.Domain.Core", "mgptechRestAPI.Domain.Core\mgptechRestAPI.Domain.Core.csproj", "{BF97580E-69DF-4692-B4ED-805E118DA3B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgptechRestAPI.Domain.Services", "mgptechRestAPI.Domain.Services\mgptechRestAPI.Domain.Services.csproj", "{717A419C-C4F1-4A2F-8420-CDD7BB67659C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgptechRestAPI.Domain.Service", "mgptechRestAPI.Domain.Services\mgptechRestAPI.Domain.Service.csproj", "{717A419C-C4F1-4A2F-8420-CDD7BB67659C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgptechRestAPI.Infra", "mgptechRestAPI.Infra\mgptechRestAPI.Infra.csproj", "{A550110C-976C-4A8F-854B-303BA5E4D531}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgptechRestAPI.Infra", "mgptechRestAPI.Infra\mgptechRestAPI.Infra.csproj", "{A550110C-976C-4A8F-854B-303BA5E4D531}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

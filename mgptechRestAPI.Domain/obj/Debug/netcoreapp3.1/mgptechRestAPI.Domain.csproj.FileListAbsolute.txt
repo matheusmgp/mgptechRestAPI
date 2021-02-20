@@ -1,0 +1,8 @@
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.deps.json
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.pdb
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.csprojAssemblyReference.cache
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.AssemblyInfoInputs.cache
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.AssemblyInfo.cs
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.pdb

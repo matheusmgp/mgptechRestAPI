@@ -1,0 +1,13 @@
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Services.deps.json
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Services.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Services.pdb
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Core.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Core.pdb
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\bin\Debug\netcoreapp3.1\mgptechRestAPI.Domain.pdb
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Services.csprojAssemblyReference.cache
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Services.AssemblyInfoInputs.cache
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Services.AssemblyInfo.cs
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Services.csproj.CopyComplete
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Services.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Services.pdb

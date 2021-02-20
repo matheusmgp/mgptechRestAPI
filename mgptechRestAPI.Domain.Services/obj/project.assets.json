@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "mgptechRestAPI.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/mgptechRestAPI.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/mgptechRestAPI.Domain.dll": {}
+        }
+      },
+      "mgptechRestAPI.Domain.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "mgptechRestAPI.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/mgptechRestAPI.Domain.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/mgptechRestAPI.Domain.Core.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "mgptechRestAPI.Domain/1.0.0": {
+      "type": "project",
+      "path": "../mgptechRestAPI.Domain/mgptechRestAPI.Domain.csproj",
+      "msbuildProject": "../mgptechRestAPI.Domain/mgptechRestAPI.Domain.csproj"
+    },
+    "mgptechRestAPI.Domain.Core/1.0.0": {
+      "type": "project",
+      "path": "../mgptechRestAPI.Domain.Core/mgptechRestAPI.Domain.Core.csproj",
+      "msbuildProject": "../mgptechRestAPI.Domain.Core/mgptechRestAPI.Domain.Core.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "mgptechRestAPI.Domain >= 1.0.0",
+      "mgptechRestAPI.Domain.Core >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\matheus\\.nuget\\packages\\": {},
@@ -14,9 +52,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Domain.Services\\mgptechRestAPI.Domain.Services.csproj",
-      "projectName": "mgptechRestAPI.Domain.Services",
-      "projectPath": "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Domain.Services\\mgptechRestAPI.Domain.Services.csproj",
+      "projectUniqueName": "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Domain.Services\\mgptechRestAPI.Domain.Service.csproj",
+      "projectName": "mgptechRestAPI.Domain.Service",
+      "projectPath": "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Domain.Services\\mgptechRestAPI.Domain.Service.csproj",
       "packagesPath": "C:\\Users\\matheus\\.nuget\\packages\\",
       "outputPath": "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Domain.Services\\obj\\",
       "projectStyle": "PackageReference",
@@ -36,7 +74,14 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Domain.Core\\mgptechRestAPI.Domain.Core.csproj": {
+              "projectPath": "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Domain.Core\\mgptechRestAPI.Domain.Core.csproj"
+            },
+            "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Domain\\mgptechRestAPI.Domain.csproj": {
+              "projectPath": "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Domain\\mgptechRestAPI.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
