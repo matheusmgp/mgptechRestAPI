@@ -1,0 +1,4 @@
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\bin\Debug\netcoreapp3.1\mgptechRestAPI.Infra.deps.json
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\bin\Debug\netcoreapp3.1\mgptechRestAPI.Infra.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\obj\Debug\netcoreapp3.1\mgptechRestAPI.Infra.AssemblyInfoInputs.cache
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Infra\obj\Debug\netcoreapp3.1\mgptechRestAPI.Infra.AssemblyInfo.cs
