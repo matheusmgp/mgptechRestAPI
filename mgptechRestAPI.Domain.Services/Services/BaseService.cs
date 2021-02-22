@@ -14,9 +14,9 @@ namespace mgptechRestAPI.Domain.Services.Services
             _repository = repository;
         }
 
-        public void Create(Entity entity)
+        public  Task<bool> Create(Entity entity)
         {
-            _repository.Create(entity);
+            return _repository.Create(entity);
         }
 
         public async Task<IEnumerable<Entity>> FindAllAsync()
@@ -31,12 +31,13 @@ namespace mgptechRestAPI.Domain.Services.Services
 
         public bool SaveChanges()
         {
-            return _repository.SaveChanges();
+            var istrue =  _repository.SaveChanges();
+            return istrue;
         }
 
-        public void Update(int id, Entity entity)
+        public Task<bool> Update(int id, Entity entity)
         {
-            _repository.Update(id, entity);
+            return _repository.Update(id, entity);
         }
     }
 }

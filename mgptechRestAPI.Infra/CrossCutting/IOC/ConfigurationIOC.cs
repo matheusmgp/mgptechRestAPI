@@ -10,7 +10,7 @@ namespace mgptechRestAPI.Infra.CrossCutting.IOC
     {
         public static void Load(ContainerBuilder builder)
         {
-            // repositories 
+            // repositories
             builder.RegisterType<AmbienteRepository>().As<IAmbienteRepository>();
             builder.RegisterType<RoleRepository>().As<IRoleRepository>();
             builder.RegisterType<UserRepository>().As<IUserRepository>();

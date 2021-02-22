@@ -1,4 +1,5 @@
 using Autofac;
+using mgptechRestAPI.Application.Mapper.Profiles;
 using mgptechRestAPI.Infra.CrossCutting.IOC;
 using mgptechRestAPI.Infra.Data;
 using Microsoft.AspNetCore.Builder;
@@ -28,7 +29,14 @@ namespace mgptechRestAPI.API
         {
             services.AddDbContext<SqlServerContext>(
                    context => context.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddAutoMapper(
+                            typeof(AmbienteProfile),
+                            typeof(RoleProfile),
+                            typeof(UserProfile));
+
             services.AddControllers();
 
             services.AddSwaggerGen(options =>
@@ -65,13 +73,13 @@ namespace mgptechRestAPI.API
                     builder => builder.AllowAnyOrigin()
                                       .AllowAnyMethod()
                                       .AllowAnyHeader()));
-
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new ModuleIOC());
         }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

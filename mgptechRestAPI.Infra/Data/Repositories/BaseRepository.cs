@@ -16,18 +16,7 @@ namespace mgptechRestAPI.Infra.Data.Repositories
             _sqlServerContext = sqlServerContext;
         }
 
-        public void Create(Entity entity)
-        {
-            try
-            {
-                _sqlServerContext.Set<Entity>().Add(entity);
-                _sqlServerContext.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
+       
 
         public async Task<IEnumerable<Entity>> FindAllAsync()
         {
@@ -45,15 +34,31 @@ namespace mgptechRestAPI.Infra.Data.Repositories
 
         public bool SaveChanges()
         {
-            return (_sqlServerContext.SaveChanges() > 0);
+            var istrue =  (_sqlServerContext.SaveChanges() > 0);
+            return istrue;
         }
 
-        public void Update(int id, Entity entity)
+        public async Task<bool> Update(int id, Entity entity) 
+        {            
+            try
+            {
+                var teste = _sqlServerContext.Entry(entity).State = EntityState.Modified;
+                var updated =   _sqlServerContext.SaveChanges();
+                return updated > 0;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public async Task<bool> Create(Entity entity)
         {
             try
             {
-                _sqlServerContext.Entry(entity).State = EntityState.Modified;
-                _sqlServerContext.SaveChanges();
+                _sqlServerContext.Set<Entity>().Add(entity);
+                var created = await _sqlServerContext.SaveChangesAsync();
+                return created > 0;
+
             }
             catch (Exception e)
             {
@@ -61,4 +66,7 @@ namespace mgptechRestAPI.Infra.Data.Repositories
             }
         }
     }
+    
+
+
 }

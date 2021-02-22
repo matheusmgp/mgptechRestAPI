@@ -30,6 +30,9 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
+              "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Application\\mgptechRestAPI.Application.csproj": {
+                "projectPath": "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Application\\mgptechRestAPI.Application.csproj"
+              },
               "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Infra\\mgptechRestAPI.Infra.csproj": {
                 "projectPath": "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Infra\\mgptechRestAPI.Infra.csproj"
               }
@@ -52,6 +55,12 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.12, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

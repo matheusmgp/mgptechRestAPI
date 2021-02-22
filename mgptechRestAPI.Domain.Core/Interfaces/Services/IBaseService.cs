@@ -9,9 +9,9 @@ namespace mgptechRestAPI.Domain.Core.Interfaces.Services
 
         Task<Entity> FindByIdAsync(int id);
 
-        void Create(Entity entity);
+        Task<bool> Create(Entity entity);
 
-        void Update(int id, Entity entity);
+        Task<bool> Update(int id, Entity entity);
 
         bool SaveChanges();
     }

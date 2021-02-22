@@ -11,12 +11,12 @@ namespace mgptechRestAPI.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AmbientesController : ControllerBase
+    public class AmbienteController : ControllerBase
     {
         private readonly IAmbienteService _iAmbienteService;
         private readonly IMapper _mapper;
 
-        public AmbientesController(IAmbienteService iAmbienteService, IMapper mapper)
+        public AmbienteController(IAmbienteService iAmbienteService, IMapper mapper)
         {
             _mapper = mapper;
             _iAmbienteService = iAmbienteService;
@@ -44,11 +44,12 @@ namespace mgptechRestAPI.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put(int id, AmbienteDtoRequest ambienteDtoRequest)
+        public async Task<ActionResult> Put(int id, AmbienteDtoRequest ambienteDtoRequest)
         {
             var ambiente = _mapper.Map<Ambiente>(ambienteDtoRequest);
-            _iAmbienteService.Update(id, ambiente);
-            if (_iAmbienteService.SaveChanges())
+            var isUpdated = await _iAmbienteService.Update(id, ambiente);
+            //var istrue = _iAmbienteService.SaveChanges();
+            if (isUpdated)
             {
                 return Ok(ambiente);
             }
@@ -57,12 +58,13 @@ namespace mgptechRestAPI.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post(AmbienteDtoRequest ambienteDtoRequest)
+        public async Task<ActionResult> Post(AmbienteDtoRequest ambienteDtoRequest)
         {
             var ambiente = _mapper.Map<Ambiente>(ambienteDtoRequest);
 
-            _iAmbienteService.Create(ambiente);
-            if (_iAmbienteService.SaveChanges())
+            var isCreated =  await _iAmbienteService.Create(ambiente);
+            //var istrue = _iAmbienteService.SaveChanges();
+            if (isCreated)
             {
                 return Ok(ambiente);
             }
