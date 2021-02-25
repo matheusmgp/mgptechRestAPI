@@ -3,13 +3,15 @@ using mgptechRestAPI.Application.Dtos.Request;
 using mgptechRestAPI.Application.Dtos.Response;
 using mgptechRestAPI.Domain.Core.Interfaces.Services;
 using mgptechRestAPI.Domain.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Net.Mime;
 using System.Threading.Tasks;
 
 namespace mgptechRestAPI.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/ambientes")]
     [ApiController]
     public class AmbienteController : ControllerBase
     {
@@ -23,7 +25,9 @@ namespace mgptechRestAPI.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ambiente>>> Get([FromQuery] bool included = false)
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AmbienteDtoResponse[]))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<IEnumerable<AmbienteDtoResponse[]>>> GetAll([FromQuery] bool included = false)
         {
             IEnumerable<Ambiente> ambientes;
 
@@ -32,16 +36,21 @@ namespace mgptechRestAPI.API.Controllers
                 ambientes = await _iAmbienteService.FindAllIncludedAsync();
             }
             else
-            {              
+            {
                 ambientes = await _iAmbienteService.FindAllAsync();
             }
-            
 
-            return Ok(_mapper.Map<IEnumerable<AmbienteDtoResponse>>(ambientes));
+            if (ambientes == null) return NotFound("Não foi possivel bsucar os dados.");
+
+            var ambienteDtoResponse = _mapper.Map<IEnumerable<AmbienteDtoResponse>>(ambientes);
+
+            return this.StatusCode(StatusCodes.Status200OK, ambienteDtoResponse);
         }
 
         [HttpGet("byName/{name}")]
-        public async Task<ActionResult<IEnumerable<Ambiente>>> GetAllAmbienteByNameAsync(string name, [FromQuery] bool included = false)
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AmbienteDtoResponse[]))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<IEnumerable<AmbienteDtoResponse[]>>> GetAllAmbienteByNameAsync(string name, [FromQuery] bool included = false)
         {
             IEnumerable<Ambiente> ambientes;
 
@@ -53,51 +62,58 @@ namespace mgptechRestAPI.API.Controllers
             {
                 ambientes = await _iAmbienteService.GetAllAmbienteByNameAsync(name);
             }
-           
 
-            return Ok(_mapper.Map<IEnumerable<AmbienteDtoResponse>>(ambientes));
+            if (ambientes == null) return NotFound("Não foi possivel bsucar os dados.");
+
+            var ambienteDtoResponse = _mapper.Map<IEnumerable<AmbienteDtoResponse>>(ambientes);
+
+            return this.StatusCode(StatusCodes.Status200OK, ambienteDtoResponse);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Ambiente>> GetById(int id)
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AmbienteDtoResponse))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<AmbienteDtoResponse>> GetById(int id)
         {
             var ambiente = await _iAmbienteService.FindByIdAsync(id);
 
             if (ambiente == null)
             {
-                return NotFound();
+                return NotFound("Não foi possivel bsucar os dados.");
             }
 
-            return Ok(_mapper.Map<AmbienteDtoResponse>(ambiente));
+            var ambienteDtoResponse = _mapper.Map<AmbienteDtoResponse>(ambiente);
+
+            return this.StatusCode(StatusCodes.Status200OK, ambienteDtoResponse);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, AmbienteDtoRequest ambienteDtoRequest)
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Ambiente))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<Ambiente>> Put(int id, AmbienteDtoRequest ambienteDtoRequest)
         {
             var ambiente = _mapper.Map<Ambiente>(ambienteDtoRequest);
             var isUpdated = await _iAmbienteService.Update(id, ambiente);
-            //var istrue = _iAmbienteService.SaveChanges();
-            if (isUpdated)
-            {
-                return Ok(ambiente);
-            }
+           
+            if (!isUpdated) return BadRequest("Falha no procedimento");
 
-            return BadRequest("Falha no procedimento");
+            return Ok(ambiente);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(AmbienteDtoRequest ambienteDtoRequest)
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Ambiente))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<Ambiente>> Post(AmbienteDtoRequest ambienteDtoRequest)
         {
             var ambiente = _mapper.Map<Ambiente>(ambienteDtoRequest);
 
-            var isCreated =  await _iAmbienteService.Create(ambiente);
-            //var istrue = _iAmbienteService.SaveChanges();
-            if (isCreated)
-            {
-                return Ok(ambiente);
-            }
+            var isCreated = await _iAmbienteService.Create(ambiente);
 
-            return BadRequest("Falha no procedimento");
+            if (!isCreated) return BadRequest("Falha no procedimento");
+
+            return CreatedAtAction(nameof(GetById), new { id = ambiente.Id }, ambiente);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace mgptechRestAPI.Application.Dtos.Response
         public string Cnpj { get; set; }
         public string Cpf { get; set; }
         public string Email { get; set; }
-        public List<Role> Roles { get; set; }
-        public List<User> Users { get; set; }
+        public List<RoleDtoResponse> Roles { get; set; }
+        public List<UserDtoResponse> Users { get; set; }
     }
 }

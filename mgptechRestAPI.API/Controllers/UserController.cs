@@ -34,8 +34,8 @@ namespace mgptechRestAPI.API.Controllers
             return Ok(_mapper.Map<IEnumerable<UserDtoResponse>>(users));
         }
 
-       
-        public async Task<ActionResult<User>> Get(int id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<User>> GetById(int id)
         {
             var user = await _iUserService.FindByIdAsync(id);
 
@@ -43,8 +43,8 @@ namespace mgptechRestAPI.API.Controllers
             {
                 return NotFound();
             }
-
-            return Ok(_mapper.Map<AmbienteDtoResponse>(user));
+           
+            return Ok(_mapper.Map<UserDtoResponse>(user));
         }
 
         
@@ -66,8 +66,8 @@ namespace mgptechRestAPI.API.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] UserDtoRequest userDtoRequest)
         {
-            var user = _mapper.Map<User>(userDtoRequest);
-            var isUpdated = await _iUserService.Update(id, user);
+           var user = _mapper.Map<User>(userDtoRequest);           
+           var isUpdated = await _iUserService.Update(id, user);
             if (isUpdated)
             {
                 return Ok(user);

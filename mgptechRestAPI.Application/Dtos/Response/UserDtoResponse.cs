@@ -9,5 +9,6 @@ namespace mgptechRestAPI.Application.Dtos.Response
         public string Senha { get; set; }
         public string Token { get; set; }
         public int RoleId { get; set; }
+        public int AmbienteId { get; set; }
     }
 }
