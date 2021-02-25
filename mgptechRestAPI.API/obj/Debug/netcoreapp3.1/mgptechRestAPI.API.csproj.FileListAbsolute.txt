@@ -24,7 +24,6 @@ E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\obj\Debug\netcoreapp3.1\mgptechRestAPI.API.csproj.CopyComplete
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\Autofac.dll
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
-E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -153,5 +152,7 @@ E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\Autofac.Extensions.DependencyInjection.dll
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\mgptechRestAPI.API.xml
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\Humanizer.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\obj\Debug\netcoreapp3.1\mgptechRestAPI.API.MvcApplicationPartsAssemblyInfo.cs
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\obj\Debug\netcoreapp3.1\mgptechRestAPI.API.MvcApplicationPartsAssemblyInfo.cache

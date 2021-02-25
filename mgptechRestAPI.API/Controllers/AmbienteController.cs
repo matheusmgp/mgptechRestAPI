@@ -23,9 +23,37 @@ namespace mgptechRestAPI.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ambiente>>> Get()
+        public async Task<ActionResult<IEnumerable<Ambiente>>> Get([FromQuery] bool included = false)
         {
-            var ambientes = await _iAmbienteService.FindAllAsync();
+            IEnumerable<Ambiente> ambientes;
+
+            if (included)
+            {
+                ambientes = await _iAmbienteService.FindAllIncludedAsync();
+            }
+            else
+            {              
+                ambientes = await _iAmbienteService.FindAllAsync();
+            }
+            
+
+            return Ok(_mapper.Map<IEnumerable<AmbienteDtoResponse>>(ambientes));
+        }
+
+        [HttpGet("byName/{name}")]
+        public async Task<ActionResult<IEnumerable<Ambiente>>> GetAllAmbienteByNameAsync(string name, [FromQuery] bool included = false)
+        {
+            IEnumerable<Ambiente> ambientes;
+
+            if (included)
+            {
+                ambientes = await _iAmbienteService.GetAllAmbienteByNameAsync(name);
+            }
+            else
+            {
+                ambientes = await _iAmbienteService.GetAllAmbienteByNameAsync(name);
+            }
+           
 
             return Ok(_mapper.Map<IEnumerable<AmbienteDtoResponse>>(ambientes));
         }

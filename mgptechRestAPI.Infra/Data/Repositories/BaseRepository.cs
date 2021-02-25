@@ -14,6 +14,7 @@ namespace mgptechRestAPI.Infra.Data.Repositories
         public BaseRepository(SqlServerContext sqlServerContext)
         {
             _sqlServerContext = sqlServerContext;
+            _sqlServerContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
        
@@ -22,7 +23,6 @@ namespace mgptechRestAPI.Infra.Data.Repositories
         {
             IQueryable<Entity> query = _sqlServerContext.Set<Entity>();
 
-            query = query.AsNoTracking();
 
             return await query.ToArrayAsync();
         }
@@ -42,8 +42,12 @@ namespace mgptechRestAPI.Infra.Data.Repositories
         {            
             try
             {
-                var teste = _sqlServerContext.Entry(entity).State = EntityState.Modified;
-                var updated =   _sqlServerContext.SaveChanges();
+                var isFound = await _sqlServerContext.Set<Entity>().FindAsync(id);
+
+                if (isFound == null) return false;
+
+                _sqlServerContext.Set<Entity>().Update(entity);
+                var updated = await _sqlServerContext.SaveChangesAsync();
                 return updated > 0;
             }
             catch (Exception e)
@@ -51,6 +55,7 @@ namespace mgptechRestAPI.Infra.Data.Repositories
                 throw e;
             }
         }
+
         public async Task<bool> Create(Entity entity)
         {
             try
