@@ -2,7 +2,7 @@
 using mgptechRestAPI.Domain.Core.Interfaces.Services;
 using mgptechRestAPI.Domain.Entities;
 
-namespace mgptechRestAPI.Domain.Services.Services
+namespace mgptechRestAPI.Domain.Service.Services
 {
     public class UserService : BaseService<User>, IUserService
     {

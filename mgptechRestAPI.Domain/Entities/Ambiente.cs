@@ -6,10 +6,7 @@ namespace mgptechRestAPI.Domain.Entities
     [Table("Ambiente")]
     public class Ambiente : BaseEntity
     {
-        public Ambiente()
-        {
-
-        }
+        public Ambiente(){}
         public string NomeFantasia { get; set; }
         public string RazaoSocial { get; set; }
         public string Cnpj { get; set; }

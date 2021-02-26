@@ -3,13 +3,20 @@ using System.Text.Json.Serialization;
 
 namespace mgptechRestAPI.Domain.Entities
 {
-    [Table("Role")]
-    public class Role : BaseEntity
+    [Table("Agendas")]
+    public class Agenda : BaseEntity
     {
-        public Role(){}
         public string Nome { get; set; }
+
+        public string Telefone { get; set; }
+
+        public string Email { get; set; }
+
+        public string? Observacao { get; set; }
+
         public int AmbienteId { get; set; }
+
         [JsonIgnore]
-        public Ambiente Ambiente { get; }
+        public Ambiente Ambiente { get; set; }
     }
 }

@@ -36,7 +36,6 @@ namespace mgptechRestAPI.API.Controllers
             var roleDtoResponse = _mapper.Map<IEnumerable<RoleDtoResponse>>(roles);
 
             return this.StatusCode(StatusCodes.Status200OK, roleDtoResponse);
-                       
         }
 
         [HttpGet("{id}")]
@@ -46,10 +45,7 @@ namespace mgptechRestAPI.API.Controllers
         {
             var role = await _iRoleService.FindByIdAsync(id);
 
-            if (role == null)
-            {
-                return NotFound("Não foi possivel bsucar os dados.");
-            }
+            if (role == null)  return NotFound("Não foi possivel bsucar os dados.");            
 
             var roleDtoResponse = _mapper.Map<RoleDtoResponse>(role);
 

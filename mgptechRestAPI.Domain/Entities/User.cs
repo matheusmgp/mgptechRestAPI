@@ -6,10 +6,7 @@ namespace mgptechRestAPI.Domain.Entities
     [Table("User")]
     public class User : BaseEntity
     {
-        public User()
-        {
-                
-        }
+        public User(){}
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }

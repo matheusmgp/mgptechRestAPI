@@ -12,6 +12,7 @@ namespace mgptechRestAPI.Infra.Data
         public DbSet<Ambiente> Ambientes { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Agenda> Agendas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,6 +34,8 @@ namespace mgptechRestAPI.Infra.Data
             modelBuilder.Entity<Ambiente>()
            .HasMany(c => c.Roles)
            .WithOne(e => e.Ambiente);
+
+
         }
     }
 }

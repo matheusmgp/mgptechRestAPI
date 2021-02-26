@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using mgptechRestAPI.Application.Dtos.Request;
 using mgptechRestAPI.Application.Dtos.Response;
 using mgptechRestAPI.Domain.Core.Interfaces.Services;
 using mgptechRestAPI.Domain.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace mgptechRestAPI.API.Controllers
 {
@@ -16,7 +13,6 @@ namespace mgptechRestAPI.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-
         private readonly IUserService _iUserService;
         private readonly IMapper _mapper;
 
@@ -43,11 +39,10 @@ namespace mgptechRestAPI.API.Controllers
             {
                 return NotFound();
             }
-           
+
             return Ok(_mapper.Map<UserDtoResponse>(user));
         }
 
-        
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] UserDtoRequest userDtoRequest)
         {
@@ -62,12 +57,11 @@ namespace mgptechRestAPI.API.Controllers
             return BadRequest("Falha no procedimento");
         }
 
-        
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] UserDtoRequest userDtoRequest)
         {
-           var user = _mapper.Map<User>(userDtoRequest);           
-           var isUpdated = await _iUserService.Update(id, user);
+            var user = _mapper.Map<User>(userDtoRequest);
+            var isUpdated = await _iUserService.Update(id, user);
             if (isUpdated)
             {
                 return Ok(user);
@@ -75,7 +69,5 @@ namespace mgptechRestAPI.API.Controllers
 
             return BadRequest("Falha no procedimento");
         }
-
-    
     }
 }

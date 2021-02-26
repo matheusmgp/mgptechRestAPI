@@ -35,7 +35,8 @@ namespace mgptechRestAPI.API
             services.AddAutoMapper(
                             typeof(AmbienteProfile),
                             typeof(RoleProfile),
-                            typeof(UserProfile));
+                            typeof(UserProfile),
+                            typeof(AgendaProfile));
 
             services.AddControllers();
 

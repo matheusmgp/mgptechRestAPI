@@ -22,8 +22,6 @@ namespace mgptechRestAPI.Infra.Data.Repositories
         public async Task<IEnumerable<Entity>> FindAllAsync()
         {
             IQueryable<Entity> query = _sqlServerContext.Set<Entity>();
-
-
             return await query.ToArrayAsync();
         }
 

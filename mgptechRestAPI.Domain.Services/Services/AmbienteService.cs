@@ -4,7 +4,7 @@ using mgptechRestAPI.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace mgptechRestAPI.Domain.Services.Services
+namespace mgptechRestAPI.Domain.Service.Services
 {
     public class AmbienteService : BaseService<Ambiente>, IAmbienteService
     {

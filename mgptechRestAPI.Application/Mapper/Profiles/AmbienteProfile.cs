@@ -10,8 +10,7 @@ namespace mgptechRestAPI.Application.Mapper.Profiles
     {
         public AmbienteProfile()
         {
-            CreateMap<Ambiente, AmbienteDtoRequest>().ReverseMap();
-            // CreateMap<AmbienteDtoRequest, Ambiente>();
+            CreateMap<Ambiente, AmbienteDtoRequest>().ReverseMap();          
             CreateMap<Ambiente, AmbienteDtoResponse>();
         }
     }

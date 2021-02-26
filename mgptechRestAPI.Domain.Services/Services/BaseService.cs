@@ -3,7 +3,7 @@ using mgptechRestAPI.Domain.Core.Interfaces.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace mgptechRestAPI.Domain.Services.Services
+namespace mgptechRestAPI.Domain.Service.Services
 {
     public class BaseService<Entity> : IBaseService<Entity> where Entity : class
     {
