@@ -22,6 +22,7 @@ namespace mgptechRestAPI.Infra.Data
         public DbSet<SubCategoria> SubCategorias { get; set; }
         public DbSet<Setor> Setores { get; set; }
         public DbSet<Procedimento> Procedimentos { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -28,7 +28,7 @@ namespace mgptechRestAPI.Infra.CrossCutting.IOC
             builder.RegisterType<SubCategoriaRepository>().As<ISubCategoriaRepository>();
             builder.RegisterType<SetorRepository>().As<ISetorRepository>();
             builder.RegisterType<ProcedimentoRepository>().As<IProcedimentoRepository>();
-
+            builder.RegisterType<ClienteRepository>().As<IClienteRepository>();
             // services
             builder.RegisterType<AmbienteService>().As<IAmbienteService>();
             builder.RegisterType<RoleService>().As<IRoleService>();
@@ -41,6 +41,7 @@ namespace mgptechRestAPI.Infra.CrossCutting.IOC
             builder.RegisterType<SubCategoriaService>().As<ISubCategoriaService>();
             builder.RegisterType<SetorService>().As<ISetorService>();
             builder.RegisterType<ProcedimentoService>().As<IProcedimentoService>();
+            builder.RegisterType<ClienteService>().As<IClienteService>();
         }
     }
 }
