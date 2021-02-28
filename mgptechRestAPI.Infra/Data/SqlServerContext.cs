@@ -18,6 +18,10 @@ namespace mgptechRestAPI.Infra.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Agenda> Agendas { get; set; }
         public DbSet<CanalComunicacao> CanaisComunicacao { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<SubCategoria> SubCategorias { get; set; }
+        public DbSet<Setor> Setores { get; set; }
+        public DbSet<Procedimento> Procedimentos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

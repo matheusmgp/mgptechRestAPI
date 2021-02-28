@@ -10,11 +10,10 @@ using System.Collections.Generic;
 using System.Net.Mime;
 using System.Threading.Tasks;
 
-namespace mgptechRestAPI.API.Controllers
+namespace mgptechRestAPI.API.Controllers.Cadastro
 {
     [Route("api/ambientes")]
     [ApiController]
-   
     public class AmbienteController : ControllerBase
     {
         private readonly IAmbienteService _iAmbienteService;
@@ -105,7 +104,7 @@ namespace mgptechRestAPI.API.Controllers
         {
             var ambiente = _mapper.Map<Ambiente>(ambienteDtoRequest);
             var isUpdated = await _iAmbienteService.Update(id, ambiente);
-           
+
             if (!isUpdated) return BadRequest("Falha no procedimento");
 
             return Ok(ambiente);

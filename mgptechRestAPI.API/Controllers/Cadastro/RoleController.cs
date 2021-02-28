@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Net.Mime;
 using System.Threading.Tasks;
 
-namespace mgptechRestAPI.API.Controllers
+namespace mgptechRestAPI.API.Controllers.Cadastro
 {
     [Route("api/roles")]
     [ApiController]
@@ -51,7 +51,7 @@ namespace mgptechRestAPI.API.Controllers
         {
             var role = await _iRoleService.FindByIdAsync(id);
 
-            if (role == null)  return NotFound("Não foi possivel bsucar os dados.");            
+            if (role == null) return NotFound("Não foi possivel bsucar os dados.");
 
             var roleDtoResponse = _mapper.Map<RoleDtoResponse>(role);
 

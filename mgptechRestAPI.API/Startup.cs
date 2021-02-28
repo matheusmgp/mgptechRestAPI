@@ -41,6 +41,10 @@ namespace mgptechRestAPI.API
                             typeof(RoleProfile),
                             typeof(UserProfile),
                             typeof(UserAuthProfile),
+                            typeof(CategoriaProfile),
+                            typeof(SetorProfile),
+                            typeof(ProcedimentoProfile),
+                            typeof(SubCategoriaProfile),
                             typeof(AgendaProfile));
 
             services.AddControllers();

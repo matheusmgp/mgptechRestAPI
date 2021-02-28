@@ -13,8 +13,8 @@ namespace mgptechRestAPI.Application.Dtos.Request
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Campo {0} é obrigatório.")]
-        [MaxLength(9, ErrorMessage = "Campo {0} deve conter entre 8 e 9 caracteres.")]
-        [MinLength(8, ErrorMessage = "Campo {0} deve conter entre 8 e 9 caracteres.")]
+        [MaxLength(11, ErrorMessage = "Campo {0} deve conter entre 7 e 11 caracteres.")]
+        [MinLength(7, ErrorMessage = "Campo {0} deve conter entre 7 e 11 caracteres.")]
         public string Telefone { get; set; }
 
         [Required(ErrorMessage = "Campo {0} é obrigatório.")]

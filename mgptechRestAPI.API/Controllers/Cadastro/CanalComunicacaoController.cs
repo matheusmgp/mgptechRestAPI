@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mime;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using mgptechRestAPI.Application.Dtos.Request;
 using mgptechRestAPI.Application.Dtos.Response;
 using mgptechRestAPI.Domain.Core.Interfaces.Services;
@@ -11,8 +6,11 @@ using mgptechRestAPI.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Net.Mime;
+using System.Threading.Tasks;
 
-namespace mgptechRestAPI.API.Controllers
+namespace mgptechRestAPI.API.Controllers.Cadastro
 {
     [Route("api/canais")]
     [ApiController]
@@ -20,13 +18,14 @@ namespace mgptechRestAPI.API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly ICanalComunicacaoService _CanalComunicacaoService;
+
         public CanalComunicacaoController(IMapper mapper, ICanalComunicacaoService iCanalComunicacaoService)
         {
             _mapper = mapper;
             _CanalComunicacaoService = iCanalComunicacaoService;
         }
 
-        [HttpGet]        
+        [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CanalComunicacaoDtoResponse[]))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [Authorize(AuthenticationSchemes = "Bearer")]

@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Net.Mime;
 using System.Threading.Tasks;
 
-namespace mgptechRestAPI.API.Controllers
+namespace mgptechRestAPI.API.Controllers.Cadastro
 {
     [Route("api/agendas")]
     [ApiController]
