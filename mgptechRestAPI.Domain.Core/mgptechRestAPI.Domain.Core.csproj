@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\mgptechRestAPI.Application\mgptechRestAPI.Application.csproj" />
     <ProjectReference Include="..\mgptechRestAPI.Domain\mgptechRestAPI.Domain.csproj" />
   </ItemGroup>
 

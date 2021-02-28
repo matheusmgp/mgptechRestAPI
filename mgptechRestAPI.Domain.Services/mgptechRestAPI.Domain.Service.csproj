@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\mgptechRestAPI.Domain.Core\mgptechRestAPI.Domain.Core.csproj" />
     <ProjectReference Include="..\mgptechRestAPI.Domain\mgptechRestAPI.Domain.csproj" />
   </ItemGroup>

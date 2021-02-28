@@ -95,6 +95,9 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
+              "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Application\\mgptechRestAPI.Application.csproj": {
+                "projectPath": "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Application\\mgptechRestAPI.Application.csproj"
+              },
               "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Domain\\mgptechRestAPI.Domain.csproj": {
                 "projectPath": "E:\\projetos\\.net Core\\mgptech_chamados_api\\mgptechRestAPI\\mgptechRestAPI.Domain\\mgptechRestAPI.Domain.csproj"
               }
@@ -171,6 +174,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.8.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

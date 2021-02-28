@@ -154,5 +154,8 @@ E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\Humanizer.dll
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\obj\Debug\netcoreapp3.1\mgptechRestAPI.API.MvcApplicationPartsAssemblyInfo.cs
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.API\obj\Debug\netcoreapp3.1\mgptechRestAPI.API.MvcApplicationPartsAssemblyInfo.cache

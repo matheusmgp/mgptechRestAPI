@@ -1,17 +1,21 @@
 using Autofac;
 using mgptechRestAPI.Application.Mapper.Profiles;
+using mgptechRestAPI.Domain.Service;
 using mgptechRestAPI.Infra.CrossCutting.IOC;
 using mgptechRestAPI.Infra.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
 using System.Reflection;
+using System.Text;
 
 namespace mgptechRestAPI.API
 {
@@ -36,6 +40,7 @@ namespace mgptechRestAPI.API
                             typeof(AmbienteProfile),
                             typeof(RoleProfile),
                             typeof(UserProfile),
+                            typeof(UserAuthProfile),
                             typeof(AgendaProfile));
 
             services.AddControllers();
@@ -74,6 +79,33 @@ namespace mgptechRestAPI.API
                     builder => builder.AllowAnyOrigin()
                                       .AllowAnyMethod()
                                       .AllowAnyHeader()));
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("administrador", policy => policy.RequireClaim("Roles", "admin"));
+                options.AddPolicy("user", policy => policy.RequireClaim("Roles", "suporte", "financeiro"));
+
+            });
+            var key = Encoding.ASCII.GetBytes(SettingsSecret.Secret);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+           
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -100,6 +132,7 @@ namespace mgptechRestAPI.API
                 });
 
             app.UseAuthorization();
+            app.UseAuthentication();
             app.UseCors();
 
             app.UseEndpoints(endpoints =>

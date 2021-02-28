@@ -3,6 +3,7 @@ using mgptechRestAPI.Application.Dtos.Request;
 using mgptechRestAPI.Application.Dtos.Response;
 using mgptechRestAPI.Domain.Core.Interfaces.Services;
 using mgptechRestAPI.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -24,6 +25,9 @@ namespace mgptechRestAPI.API.Controllers
         }
         
         [HttpGet]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "user")]
+       
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AgendaDtoResponse[]))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<IEnumerable<AgendaDtoResponse>>> GetAll()
@@ -37,6 +41,8 @@ namespace mgptechRestAPI.API.Controllers
         }
                
         [HttpGet("{id}")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "administrador")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AgendaDtoResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<AgendaDtoResponse>> GetById(int id)

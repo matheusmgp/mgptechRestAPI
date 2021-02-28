@@ -11,3 +11,5 @@ E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Service.csproj.CopyComplete
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Service.dll
 E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\obj\Debug\netcoreapp3.1\mgptechRestAPI.Domain.Service.pdb
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\bin\Debug\netcoreapp3.1\mgptechRestAPI.Application.dll
+E:\projetos\.net Core\mgptech_chamados_api\mgptechRestAPI\mgptechRestAPI.Domain.Services\bin\Debug\netcoreapp3.1\mgptechRestAPI.Application.pdb
