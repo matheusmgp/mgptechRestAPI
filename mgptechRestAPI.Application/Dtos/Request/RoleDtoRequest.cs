@@ -2,9 +2,9 @@
 
 namespace mgptechRestAPI.Application.Dtos.Request
 {
-    public class RoleDtoRequest
+    public class RoleDtoRequest : BaseDtoEntity
     {
-        public int? Id { get; set; }
+        
 
         [Required(ErrorMessage = "O {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(50, ErrorMessage = "Valor maximo de caracteres é 50")]
@@ -13,5 +13,7 @@ namespace mgptechRestAPI.Application.Dtos.Request
 
         [Required(ErrorMessage = "O {0} é obrigatório", AllowEmptyStrings = false)]
         public int AmbienteId { get; set; }
+        [Required(ErrorMessage = "O {0} é obrigatório", AllowEmptyStrings = false)]
+        public int RoleId { get; set; }
     }
 }

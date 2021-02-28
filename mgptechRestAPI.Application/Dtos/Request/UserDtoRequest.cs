@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace mgptechRestAPI.Application.Dtos.Request
 {
-    public class UserDtoRequest
+    public class UserDtoRequest : BaseDtoEntity
     {
-        public int? Id { get; set; }
+    
+
         [Required(ErrorMessage = "O {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(50, ErrorMessage = "Valor maximo de caracteres é 50")]
         [MinLength(5, ErrorMessage = "Valor minimo de caracteres é 5")]
@@ -23,6 +21,7 @@ namespace mgptechRestAPI.Application.Dtos.Request
         public string Senha { get; set; }
 
         public string Token { get; set; }
+
         [Required(ErrorMessage = "O {0} é obrigatório", AllowEmptyStrings = false)]
         public int RoleId { get; set; }
 

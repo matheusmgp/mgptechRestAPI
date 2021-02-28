@@ -7,6 +7,8 @@ namespace mgptechRestAPI.Domain.Entities
     public class Role : BaseEntity
     {
         public Role(){}
+
+        public int RoleId { get; set; }
         public string Nome { get; set; }
         public int AmbienteId { get; set; }
         [JsonIgnore]

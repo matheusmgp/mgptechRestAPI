@@ -1,10 +1,14 @@
 ﻿using Autofac;
 using mgptechRestAPI.Domain.Core.Interfaces.Repositories;
 using mgptechRestAPI.Domain.Core.Interfaces.Repositories.Auth;
+using mgptechRestAPI.Domain.Core.Interfaces.Repositories.Register;
 using mgptechRestAPI.Domain.Core.Interfaces.Services;
+using mgptechRestAPI.Domain.Core.Interfaces.Services.Register;
 using mgptechRestAPI.Domain.Service.Services;
+using mgptechRestAPI.Domain.Service.Services.Register;
 using mgptechRestAPI.Infra.Data.Repositories;
 using mgptechRestAPI.Infra.Data.Repositories.Auth;
+using mgptechRestAPI.Infra.Data.Repositories.Register;
 
 namespace mgptechRestAPI.Infra.CrossCutting.IOC
 {
@@ -18,6 +22,8 @@ namespace mgptechRestAPI.Infra.CrossCutting.IOC
             builder.RegisterType<UserRepository>().As<IUserRepository>();
             builder.RegisterType<AgendaRepository>().As<IAgendaRepository>();
             builder.RegisterType<UserAuthRepository>().As<IUserAuthRepository>();
+            builder.RegisterType<CanalComunicacaoRepository>().As<ICanalComunicacaoRepository>();
+            builder.RegisterType<UserRegisterRepository>().As<IUserRegisterRepository>();
 
             // services
             builder.RegisterType<AmbienteService>().As<IAmbienteService>();
@@ -25,6 +31,8 @@ namespace mgptechRestAPI.Infra.CrossCutting.IOC
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<AgendaService>().As<IAgendaService>();
             builder.RegisterType<UserAuthService>().As<IUserAuthService>();
+            builder.RegisterType<CanalComunicacaoService>().As<ICanalComunicacaoService>();
+            builder.RegisterType<UserRegisterService>().As<IUserRegisterService>();
         }
     }
 }

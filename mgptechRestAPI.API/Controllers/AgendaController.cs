@@ -14,6 +14,7 @@ namespace mgptechRestAPI.API.Controllers
 {
     [Route("api/agendas")]
     [ApiController]
+    
     public class AgendaController : ControllerBase
     {
         private readonly IMapper _mapper;
@@ -26,8 +27,7 @@ namespace mgptechRestAPI.API.Controllers
         
         [HttpGet]
         [Authorize(AuthenticationSchemes = "Bearer")]
-        [Authorize(Policy = "user")]
-       
+        [Authorize(Policy = "All")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AgendaDtoResponse[]))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<IEnumerable<AgendaDtoResponse>>> GetAll()
@@ -42,7 +42,7 @@ namespace mgptechRestAPI.API.Controllers
                
         [HttpGet("{id}")]
         [Authorize(AuthenticationSchemes = "Bearer")]
-        [Authorize(Policy = "administrador")]
+        [Authorize(Policy = "All")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AgendaDtoResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<AgendaDtoResponse>> GetById(int id)
@@ -60,6 +60,8 @@ namespace mgptechRestAPI.API.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Role))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "Administrador")]
         public async Task<ActionResult<Agenda>> Post([FromBody] AgendaDtoRequest agendaDtoRequest)
         {
             var agenda = _mapper.Map<Agenda>(agendaDtoRequest);
@@ -74,6 +76,8 @@ namespace mgptechRestAPI.API.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Role))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "Administrador")]
         public async Task<ActionResult<Agenda>> Put(int id, [FromBody] AgendaDtoRequest agendaDtoRequest)
         {
             var agenda = _mapper.Map<Agenda>(agendaDtoRequest);

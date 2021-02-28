@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace mgptechRestAPI.Domain.Entities
 {
@@ -6,5 +7,6 @@ namespace mgptechRestAPI.Domain.Entities
     {
         [Key]
         public int Id { get; set; }
+        public DateTime DataCadastro { get; set; }
     }
 }

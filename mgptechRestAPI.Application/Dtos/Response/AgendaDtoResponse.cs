@@ -1,8 +1,8 @@
 ﻿namespace mgptechRestAPI.Application.Dtos.Response
 {
-    public class AgendaDtoResponse
+    public class AgendaDtoResponse : BaseDtoEntity
     {
-        public int? Id { get; set; }
+       
 
         public string Nome { get; set; }
 

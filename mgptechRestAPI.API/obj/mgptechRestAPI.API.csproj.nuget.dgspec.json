@@ -60,6 +60,10 @@
               "target": "Package",
               "version": "[7.1.0, )"
             },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.2, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[3.1.10, )"
@@ -422,6 +426,10 @@
             "Autofac": {
               "target": "Package",
               "version": "[6.1.0, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.2, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

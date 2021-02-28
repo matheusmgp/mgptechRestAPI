@@ -3,14 +3,17 @@ using mgptechRestAPI.Application.Dtos.Request;
 using mgptechRestAPI.Application.Dtos.Response;
 using mgptechRestAPI.Domain.Core.Interfaces.Services;
 using mgptechRestAPI.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Net.Mime;
 using System.Threading.Tasks;
 
 namespace mgptechRestAPI.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [Route("api/users")]
+    [ApiController]   
     public class UserController : ControllerBase
     {
         private readonly IUserService _iUserService;
@@ -23,28 +26,44 @@ namespace mgptechRestAPI.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> Get()
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "All")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(UserDtoResponse[]))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<IEnumerable<UserDtoResponse>>> GetAll()
         {
             var users = await _iUserService.FindAllAsync();
 
-            return Ok(_mapper.Map<IEnumerable<UserDtoResponse>>(users));
+            if (users == null) return NotFound("Não foi possivel bsucar os dados.");
+
+            var userDtoResponse = _mapper.Map<IEnumerable<UserDtoResponse>>(users);
+
+            return this.StatusCode(StatusCodes.Status200OK, userDtoResponse);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetById(int id)
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(UserDtoResponse))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "All")]
+        public async Task<ActionResult<UserDtoResponse>> GetById(int id)
         {
             var user = await _iUserService.FindByIdAsync(id);
 
-            if (user == null)
-            {
-                return NotFound();
-            }
+            if (user == null) return NotFound("Não foi possivel bsucar os dados.");
 
-            return Ok(_mapper.Map<UserDtoResponse>(user));
+            var userDtoResponse = _mapper.Map<UserDtoResponse>(user);
+
+            return this.StatusCode(StatusCodes.Status200OK, userDtoResponse);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] UserDtoRequest userDtoRequest)
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(User))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "Administrador")]
+        public async Task<ActionResult<User>> Post([FromBody] UserDtoRequest userDtoRequest)
         {
             var user = _mapper.Map<User>(userDtoRequest);
 
@@ -54,20 +73,28 @@ namespace mgptechRestAPI.API.Controllers
                 return Ok(user);
             }
 
-            return BadRequest("Falha no procedimento");
+            return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
+
+
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody] UserDtoRequest userDtoRequest)
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(User))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "Administrador")]
+        public async Task<ActionResult<User>> Put(int id, [FromBody] UserDtoRequest userDtoRequest)
         {
-            var user = _mapper.Map<User>(userDtoRequest);
-            var isUpdated = await _iUserService.Update(id, user);
-            if (isUpdated)
-            {
-                return Ok(user);
-            }
+            var userFound = await _iUserService.FindByIdAsync(id);
+            userDtoRequest.DataCadastro = userFound.DataCadastro;
 
-            return BadRequest("Falha no procedimento");
+            var user = _mapper.Map<User>(userDtoRequest);
+
+            var isUpdated = await _iUserService.Update(id, user);
+            if (!isUpdated) return BadRequest("Falha no procedimento");
+
+            return Ok(user);
         }
     }
 }

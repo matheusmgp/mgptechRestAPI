@@ -3,9 +3,9 @@ using System.Text.Json.Serialization;
 
 namespace mgptechRestAPI.Application.Dtos.Response
 {
-    public class UserAuthDtoResponse
+    public class UserAuthDtoResponse : BaseDtoEntity
     {
-        public int Id { get; set; }
+        
         public string Email { get; set; }
         public string Senha { get; set; }
         public string Token { get; set; }

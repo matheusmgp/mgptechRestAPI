@@ -1,5 +1,9 @@
 ﻿using mgptechRestAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace mgptechRestAPI.Infra.Data
 {
@@ -13,6 +17,7 @@ namespace mgptechRestAPI.Infra.Data
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Agenda> Agendas { get; set; }
+        public DbSet<CanalComunicacao> CanaisComunicacao { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,6 +41,21 @@ namespace mgptechRestAPI.Infra.Data
            .WithOne(e => e.Ambiente);
 
 
+        }
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            foreach(var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
+            {
+                if ( entry.State == EntityState.Added)
+                {
+                    entry.Property("DataCadastro").CurrentValue = DateTime.Now;
+                }
+                else if(entry.State == EntityState.Modified)
+                {
+                    //entry.Property("DataCadastro").CurrentValue = entry.Property("DataCadastro").CurrentValue;
+                }
+            }
+            return await base.SaveChangesAsync();
         }
     }
 }

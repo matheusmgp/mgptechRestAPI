@@ -82,10 +82,12 @@ namespace mgptechRestAPI.API
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("administrador", policy => policy.RequireClaim("Roles", "admin"));
-                options.AddPolicy("user", policy => policy.RequireClaim("Roles", "suporte", "financeiro"));
+            options.AddPolicy("Financeiro", policy => policy.RequireClaim("Roles", "admin"));
+            options.AddPolicy("Suporte", policy => policy.RequireClaim("Roles", "suporte"));
+            options.AddPolicy("Administrador", policy => policy.RequireClaim("Roles", "admin"));
+            options.AddPolicy("All",policy => policy.RequireClaim("Roles", "admin", "suporte","financeiro"));
 
-            });
+        });
             var key = Encoding.ASCII.GetBytes(SettingsSecret.Secret);
             services.AddAuthentication(x =>
             {

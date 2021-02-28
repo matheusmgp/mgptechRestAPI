@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace mgptechRestAPI.Application.Dtos.Request
 {
-    public class AmbienteDtoRequest
+    public class AmbienteDtoRequest : BaseDtoEntity
     {
-        public int? Id { get; set; }
+      
 
         [Required(ErrorMessage = "O {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(50,ErrorMessage ="Valor maximo de caracteres é 50")]

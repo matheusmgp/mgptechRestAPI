@@ -3,6 +3,7 @@ using mgptechRestAPI.Application.Dtos.Request;
 using mgptechRestAPI.Application.Dtos.Response;
 using mgptechRestAPI.Domain.Core.Interfaces.Services;
 using mgptechRestAPI.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace mgptechRestAPI.API.Controllers
 {
     [Route("api/ambientes")]
     [ApiController]
+   
     public class AmbienteController : ControllerBase
     {
         private readonly IAmbienteService _iAmbienteService;
@@ -27,6 +29,8 @@ namespace mgptechRestAPI.API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AmbienteDtoResponse[]))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "Administrador")]
         public async Task<ActionResult<IEnumerable<AmbienteDtoResponse[]>>> GetAll([FromQuery] bool included = false)
         {
             IEnumerable<Ambiente> ambientes;
@@ -50,6 +54,8 @@ namespace mgptechRestAPI.API.Controllers
         [HttpGet("byName/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AmbienteDtoResponse[]))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "Administrador")]
         public async Task<ActionResult<IEnumerable<AmbienteDtoResponse[]>>> GetAllAmbienteByNameAsync(string name, [FromQuery] bool included = false)
         {
             IEnumerable<Ambiente> ambientes;
@@ -73,6 +79,8 @@ namespace mgptechRestAPI.API.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AmbienteDtoResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "Administrador")]
         public async Task<ActionResult<AmbienteDtoResponse>> GetById(int id)
         {
             var ambiente = await _iAmbienteService.FindByIdAsync(id);
@@ -91,6 +99,8 @@ namespace mgptechRestAPI.API.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Ambiente))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "Administrador")]
         public async Task<ActionResult<Ambiente>> Put(int id, AmbienteDtoRequest ambienteDtoRequest)
         {
             var ambiente = _mapper.Map<Ambiente>(ambienteDtoRequest);
@@ -105,6 +115,8 @@ namespace mgptechRestAPI.API.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Ambiente))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "Administrador")]
         public async Task<ActionResult<Ambiente>> Post(AmbienteDtoRequest ambienteDtoRequest)
         {
             var ambiente = _mapper.Map<Ambiente>(ambienteDtoRequest);

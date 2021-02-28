@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace mgptechRestAPI.Application.Dtos.Response
 {
-    public class AmbienteDtoResponse : BaseEntity
+    public class AmbienteDtoResponse : BaseDtoEntity
     {
-        public int? Id { get; set; }
+        
         public string NomeFantasia { get; set; }
         public string RazaoSocial { get; set; }
         public string Cnpj { get; set; }

@@ -3,6 +3,7 @@ using mgptechRestAPI.Application.Dtos.Request;
 using mgptechRestAPI.Application.Dtos.Response;
 using mgptechRestAPI.Domain.Core.Interfaces.Services;
 using mgptechRestAPI.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -11,8 +12,9 @@ using System.Threading.Tasks;
 
 namespace mgptechRestAPI.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/roles")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class RoleController : ControllerBase
     {
         private readonly IRoleService _iRoleService;
@@ -27,6 +29,8 @@ namespace mgptechRestAPI.API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(RoleDtoResponse[]))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "All")]
         public async Task<ActionResult<IEnumerable<RoleDtoResponse[]>>> GetAll()
         {
             var roles = await _iRoleService.FindAllAsync();
@@ -41,6 +45,8 @@ namespace mgptechRestAPI.API.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(RoleDtoResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "All")]
         public async Task<ActionResult<Role>> GetById(int id)
         {
             var role = await _iRoleService.FindByIdAsync(id);
@@ -56,6 +62,8 @@ namespace mgptechRestAPI.API.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Role))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "Administrador")]
         public async Task<ActionResult<Role>> Post([FromBody] RoleDtoRequest roleDtoRequest)
         {
             var role = _mapper.Map<Role>(roleDtoRequest);
@@ -70,6 +78,8 @@ namespace mgptechRestAPI.API.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Role))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Policy = "Administrador")]
         public async Task<ActionResult<Role>> Put(int id, [FromBody] RoleDtoRequest roleDtoRequest)
         {
             var role = _mapper.Map<Role>(roleDtoRequest);
