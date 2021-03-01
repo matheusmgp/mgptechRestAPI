@@ -16,5 +16,7 @@ namespace mgptechRestAPI.Application.Dtos.Response
         public int UserFinishId { get; set; }
         public int UserRedirectId { get; set; }
         public int SetorId { get; set; }
+
+        public IEnumerable<PendenciaDtoResponse> Pendencias { get; set; }
     }
 }

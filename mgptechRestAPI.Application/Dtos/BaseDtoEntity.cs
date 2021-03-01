@@ -2,7 +2,7 @@
 
 namespace mgptechRestAPI.Application.Dtos
 {
-    public  class BaseDtoEntity
+    public abstract class BaseDtoEntity
     {
         public int Id { get; set; }
         public DateTime DataCadastro { get; set; }

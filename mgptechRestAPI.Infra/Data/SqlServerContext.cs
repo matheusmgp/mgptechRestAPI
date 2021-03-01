@@ -25,6 +25,7 @@ namespace mgptechRestAPI.Infra.Data
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Filial> Filiais { get; set; }
         public DbSet<Chamado> Chamados { get; set; }
+        public DbSet<Pendencia> Pendencias { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -46,6 +47,10 @@ namespace mgptechRestAPI.Infra.Data
             modelBuilder.Entity<Ambiente>()
            .HasMany(c => c.Roles)
            .WithOne(e => e.Ambiente);
+
+            modelBuilder.Entity<Chamado>()
+           .HasMany(c => c.Pendencias)
+           .WithOne(e => e.Chamado);
 
 
         }

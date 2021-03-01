@@ -46,6 +46,7 @@ namespace mgptechRestAPI.API
                             typeof(ProcedimentoProfile),
                             typeof(ClienteProfile),
                             typeof(FilialProfile),
+                            typeof(PendenciaProfile),
                             typeof(ChamadoProfile),
                             typeof(SubCategoriaProfile),
                             typeof(AgendaProfile));

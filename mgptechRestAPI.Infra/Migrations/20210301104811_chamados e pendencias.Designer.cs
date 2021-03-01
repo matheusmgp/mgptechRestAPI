@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mgptechRestAPI.Infra.Data;
 
 namespace mgptechRestAPI.Infra.Migrations
 {
     [DbContext(typeof(SqlServerContext))]
-    partial class SqlServerContextModelSnapshot : ModelSnapshot
+    [Migration("20210301104811_chamados e pendencias")]
+    partial class chamadosependencias
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -147,7 +149,7 @@ namespace mgptechRestAPI.Infra.Migrations
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DataFechamento")
+                    b.Property<DateTime>("DataFechamento")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("FilialId")
@@ -162,13 +164,13 @@ namespace mgptechRestAPI.Infra.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserFinishId")
+                    b.Property<int>("UserFinishId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserRedirectId")
+                    b.Property<int>("UserRedirectId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -271,7 +273,7 @@ namespace mgptechRestAPI.Infra.Migrations
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DataFechamento")
+                    b.Property<DateTime>("DataFechamento")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Descricao")
@@ -292,7 +294,7 @@ namespace mgptechRestAPI.Infra.Migrations
                     b.Property<int>("SubCategoriaId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserFinishId")
+                    b.Property<int>("UserFinishId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")
@@ -515,7 +517,9 @@ namespace mgptechRestAPI.Infra.Migrations
 
                     b.HasOne("mgptechRestAPI.Domain.Entities.User", "UserFinish")
                         .WithMany()
-                        .HasForeignKey("UserFinishId");
+                        .HasForeignKey("UserFinishId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("mgptechRestAPI.Domain.Entities.User", "User")
                         .WithMany()
@@ -525,7 +529,9 @@ namespace mgptechRestAPI.Infra.Migrations
 
                     b.HasOne("mgptechRestAPI.Domain.Entities.User", "UserRedirect")
                         .WithMany()
-                        .HasForeignKey("UserRedirectId");
+                        .HasForeignKey("UserRedirectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Ambiente");
 
@@ -596,7 +602,9 @@ namespace mgptechRestAPI.Infra.Migrations
 
                     b.HasOne("mgptechRestAPI.Domain.Entities.User", "UserFinish")
                         .WithMany()
-                        .HasForeignKey("UserFinishId");
+                        .HasForeignKey("UserFinishId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("mgptechRestAPI.Domain.Entities.User", "User")
                         .WithMany()

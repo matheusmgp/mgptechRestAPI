@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
@@ -10,7 +11,7 @@ namespace mgptechRestAPI.Domain.Entities
         public string Status { get; set; }
         public string Protocolo { get; set; }
         public DateTime DataAbertura { get; set; }
-        public DateTime DataFechamento { get; set; }
+        public DateTime? DataFechamento { get; set; }
 
         public int AmbienteId { get; set; }
 
@@ -27,12 +28,12 @@ namespace mgptechRestAPI.Domain.Entities
         [JsonIgnore]
         public Filial Filial { get; set; }
 
-        public int UserFinishId { get; set; }
+        public int? UserFinishId { get; set; }
 
         [JsonIgnore]
         public User UserFinish { get; set; }
 
-        public int UserRedirectId { get; set; }
+        public int? UserRedirectId { get; set; }
 
         [JsonIgnore]
         public User UserRedirect { get; set; }
@@ -42,6 +43,6 @@ namespace mgptechRestAPI.Domain.Entities
         [JsonIgnore]
         public Setor Setor { get; set; }
 
-        // public IEnumerable<Pendencia> Pendencias { get; set; }
+        public IEnumerable<Pendencia> Pendencias { get; set; }
     }
 }

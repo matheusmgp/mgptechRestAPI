@@ -31,6 +31,7 @@ namespace mgptechRestAPI.Infra.CrossCutting.IOC
             builder.RegisterType<ClienteRepository>().As<IClienteRepository>();
             builder.RegisterType<FilialRepository>().As<IFilialRepository>();
             builder.RegisterType<ChamadoRepository>().As<IChamadoRepository>();
+            builder.RegisterType<PendenciaRepository>().As<IPendenciaRepository>();
 
 
 
@@ -48,7 +49,8 @@ namespace mgptechRestAPI.Infra.CrossCutting.IOC
             builder.RegisterType<ProcedimentoService>().As<IProcedimentoService>();
             builder.RegisterType<ClienteService>().As<IClienteService>();
             builder.RegisterType<FilialService>().As<IFilialService>();
-            builder.RegisterType<ChamadoService>().As<IChamadoService>();
+            builder.RegisterType<ChamadoService>().As<IChamadoService>(); 
+            builder.RegisterType<PendenciaService>().As<IPendenciaService>();
         }
     }
 }
