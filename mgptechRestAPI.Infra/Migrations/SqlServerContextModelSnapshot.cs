@@ -157,6 +157,38 @@ namespace mgptechRestAPI.Infra.Migrations
                     b.ToTable("Cliente");
                 });
 
+            modelBuilder.Entity("mgptechRestAPI.Domain.Entities.Filial", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AmbienteId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Cnpj")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DataCadastro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NomeFantasia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RazaoSocial")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AmbienteId");
+
+                    b.ToTable("Filial");
+                });
+
             modelBuilder.Entity("mgptechRestAPI.Domain.Entities.Procedimento", b =>
                 {
                     b.Property<int>("Id")
@@ -334,6 +366,17 @@ namespace mgptechRestAPI.Infra.Migrations
                 });
 
             modelBuilder.Entity("mgptechRestAPI.Domain.Entities.Cliente", b =>
+                {
+                    b.HasOne("mgptechRestAPI.Domain.Entities.Ambiente", "Ambiente")
+                        .WithMany()
+                        .HasForeignKey("AmbienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ambiente");
+                });
+
+            modelBuilder.Entity("mgptechRestAPI.Domain.Entities.Filial", b =>
                 {
                     b.HasOne("mgptechRestAPI.Domain.Entities.Ambiente", "Ambiente")
                         .WithMany()

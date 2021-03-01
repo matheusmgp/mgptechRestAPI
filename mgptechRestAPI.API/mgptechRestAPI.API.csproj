@@ -34,9 +34,5 @@
     <ProjectReference Include="..\mgptechRestAPI.Infra\mgptechRestAPI.Infra.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\Chamado\" />
-  </ItemGroup>
-
 
 </Project>
