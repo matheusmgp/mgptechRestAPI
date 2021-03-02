@@ -6,11 +6,11 @@ namespace mgptechRestAPI.Domain.Entities
     [Table("Procedimento")]
     public class Procedimento : BaseEntity
     {
+        [Column("descricao_value", TypeName = "varchar(300)")]
         public string DescricaoValue { get; set; }
+        [Column("descricao", TypeName = "varchar(300)")]
         public string Descricao { get; set; }
+        [Column("status", TypeName = "varchar(1)")]
         public string Status { get; set; }
-        public int AmbienteId { get; set; }
-        [JsonIgnore]
-        public Ambiente Ambiente { get; set; }
-    }
+    } 
 }

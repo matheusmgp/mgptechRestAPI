@@ -51,6 +51,8 @@ namespace mgptechRestAPI.Infra.Data
             modelBuilder.Entity<Chamado>()
            .HasMany(c => c.Pendencias)
            .WithOne(e => e.Chamado);
+            modelBuilder.Entity<SubCategoria>()
+               .HasOne(c => c.Categoria);
 
 
         }

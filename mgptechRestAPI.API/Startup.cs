@@ -51,8 +51,8 @@ namespace mgptechRestAPI.API
                             typeof(SubCategoriaProfile),
                             typeof(AgendaProfile));
 
-            services.AddControllers();
-
+            services.AddControllers().AddNewtonsoftJson(x => 
+            x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc(

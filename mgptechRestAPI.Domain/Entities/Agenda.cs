@@ -6,17 +6,18 @@ namespace mgptechRestAPI.Domain.Entities
     [Table("Agendas")]
     public class Agenda : BaseEntity
     {
+        [Column("nome",TypeName = "varchar(50)")]
         public string Nome { get; set; }
 
+        [Column("telefone", TypeName = "varchar(15)")]
         public string Telefone { get; set; }
 
+        [Column("email", TypeName = "varchar(50)")]
         public string Email { get; set; }
 
-        public string? Observacao { get; set; }
+        [Column("observacao", TypeName = "text")]
+        public string? Observacao { get; set; }      
 
-        public int AmbienteId { get; set; }
-
-        [JsonIgnore]
-        public Ambiente Ambiente { get; set; }
+      
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mgptechRestAPI.Infra.Data;
 
 namespace mgptechRestAPI.Infra.Migrations
 {
     [DbContext(typeof(SqlServerContext))]
-    partial class SqlServerContextModelSnapshot : ModelSnapshot
+    [Migration("20210301235339_columns rename7")]
+    partial class columnsrename7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,6 +209,8 @@ namespace mgptechRestAPI.Infra.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AmbienteId");
+
+                    b.HasIndex("UserFinishId");
 
                     b.ToTable("Chamado");
                 });
@@ -586,7 +590,13 @@ namespace mgptechRestAPI.Infra.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("mgptechRestAPI.Domain.Entities.User", "UserFinish")
+                        .WithMany()
+                        .HasForeignKey("UserFinishId");
+
                     b.Navigation("Ambiente");
+
+                    b.Navigation("UserFinish");
                 });
 
             modelBuilder.Entity("mgptechRestAPI.Domain.Entities.Cliente", b =>

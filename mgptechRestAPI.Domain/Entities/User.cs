@@ -7,15 +7,18 @@ namespace mgptechRestAPI.Domain.Entities
     public class User : BaseEntity
     {
         public User(){}
+        [Column("nome", TypeName = "varchar(50)")]
         public string Nome { get; set; }
+        [Column("email", TypeName = "varchar(50)")]
         public string Email { get; set; }
+        [Column("senha", TypeName = "varchar(200)")]
         public string Senha { get; set; }
+        [Column("token", TypeName = "text")]
         public string Token { get; set; }
+        [Column("role_id")]
         public int RoleId { get; set; }
         [JsonIgnore]
         public Role Role { get; }
-        public int AmbienteId { get; set; }
-        [JsonIgnore]
-        public Ambiente Ambiente { get; }
+     
     }
 }

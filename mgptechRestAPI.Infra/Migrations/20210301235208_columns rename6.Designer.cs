@@ -10,8 +10,8 @@ using mgptechRestAPI.Infra.Data;
 namespace mgptechRestAPI.Infra.Migrations
 {
     [DbContext(typeof(SqlServerContext))]
-    [Migration("20210301110209_null columns")]
-    partial class nullcolumns
+    [Migration("20210301235208_columns rename6")]
+    partial class columnsrename6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,22 +29,28 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AmbienteId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("email");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("nome");
 
                     b.Property<string>("Observacao")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text")
+                        .HasColumnName("observacao");
 
                     b.Property<string>("Telefone")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(15)")
+                        .HasColumnName("telefone");
 
                     b.HasKey("Id");
 
@@ -60,25 +66,40 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AmbienteId")
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
+
+                    b.Property<int?>("AmbienteId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("Cnpj")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(14)")
+                        .HasColumnName("cnpj");
 
                     b.Property<string>("Cpf")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(11)")
+                        .HasColumnName("cpf");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("email");
 
                     b.Property<string>("NomeFantasia")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("nome_fantasia");
 
                     b.Property<string>("RazaoSocial")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("razao_social");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AmbienteId1");
 
                     b.ToTable("Ambiente");
                 });
@@ -91,16 +112,20 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AmbienteId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("nome");
 
                     b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(1)")
+                        .HasColumnName("status");
 
                     b.HasKey("Id");
 
@@ -117,18 +142,24 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AmbienteId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("nome");
 
                     b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(1)")
+                        .HasColumnName("status");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AmbienteId");
 
                     b.ToTable("Categoria");
                 });
@@ -141,51 +172,54 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AmbienteId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
 
                     b.Property<DateTime>("DataAbertura")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_abertura");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<DateTime?>("DataFechamento")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_fechamento");
 
                     b.Property<int>("FilialId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("filial_id");
 
                     b.Property<string>("Protocolo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("protocolo");
 
                     b.Property<int>("SetorId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("setor_id");
 
                     b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(1)")
+                        .HasColumnName("status");
 
                     b.Property<int?>("UserFinishId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_finish_id");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
 
                     b.Property<int?>("UserRedirectId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_redirect_id");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AmbienteId");
 
-                    b.HasIndex("FilialId");
-
-                    b.HasIndex("SetorId");
-
                     b.HasIndex("UserFinishId");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("UserRedirectId");
 
                     b.ToTable("Chamado");
                 });
@@ -198,16 +232,20 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AmbienteId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("nome");
 
                     b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(1)")
+                        .HasColumnName("status");
 
                     b.HasKey("Id");
 
@@ -224,22 +262,28 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AmbienteId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
 
                     b.Property<string>("Cnpj")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(14)")
+                        .HasColumnName("cnpj");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<string>("NomeFantasia")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("nome_fantasia");
 
                     b.Property<string>("RazaoSocial")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("razao_social");
 
                     b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(1)")
+                        .HasColumnName("status");
 
                     b.HasKey("Id");
 
@@ -256,65 +300,72 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AmbienteId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
 
                     b.Property<int>("CanalComunicacaoId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("canal_id");
 
                     b.Property<int>("CategoriaId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("categoria_id");
 
                     b.Property<int>("ChamadoId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("chamado_id");
 
                     b.Property<DateTime>("DataAbertura")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_abertura");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<DateTime?>("DataFechamento")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_fechamento");
 
                     b.Property<string>("Descricao")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text")
+                        .HasColumnName("descricao");
 
                     b.Property<string>("Imagem")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(200)")
+                        .HasColumnName("imagem");
 
                     b.Property<string>("PendenciaImagem")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("pendencia_imagem");
 
                     b.Property<string>("Solucao")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text")
+                        .HasColumnName("solucao");
 
                     b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(1)")
+                        .HasColumnName("status");
 
                     b.Property<int>("SubCategoriaId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("subCategoria_id");
 
                     b.Property<int?>("UserFinishId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_finish_id");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AmbienteId");
 
-                    b.HasIndex("CanalComunicacaoId");
-
-                    b.HasIndex("CategoriaId");
-
                     b.HasIndex("ChamadoId");
 
-                    b.HasIndex("SubCategoriaId");
-
                     b.HasIndex("UserFinishId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Pendencia");
                 });
@@ -327,19 +378,24 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AmbienteId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<string>("Descricao")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(300)")
+                        .HasColumnName("descricao");
 
                     b.Property<string>("DescricaoValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(300)")
+                        .HasColumnName("descricao_value");
 
                     b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(1)")
+                        .HasColumnName("status");
 
                     b.HasKey("Id");
 
@@ -356,16 +412,24 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AmbienteId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("nome");
 
                     b.Property<int>("RoleId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("role_id");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("varchar(1)")
+                        .HasColumnName("status");
 
                     b.HasKey("Id");
 
@@ -382,25 +446,32 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AmbienteId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("nome");
 
                     b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(1)")
+                        .HasColumnName("status");
 
                     b.Property<string>("Tempo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("tempo");
 
                     b.Property<string>("TempoMedio")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("tempo_medio");
 
                     b.Property<string>("TempoRapido")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("tempo_rapido");
 
                     b.HasKey("Id");
 
@@ -417,21 +488,28 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AmbienteId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
 
                     b.Property<int>("CategoriaId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("categoria_id");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("nome");
 
                     b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(1)")
+                        .HasColumnName("status");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AmbienteId");
 
                     b.HasIndex("CategoriaId");
 
@@ -446,25 +524,32 @@ namespace mgptechRestAPI.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AmbienteId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ambiente_id");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("dateTime2")
+                        .HasColumnName("data_cadastro");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("email");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("nome");
 
                     b.Property<int>("RoleId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("role_id");
 
                     b.Property<string>("Senha")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(200)")
+                        .HasColumnName("senha");
 
                     b.Property<string>("Token")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text")
+                        .HasColumnName("token");
 
                     b.HasKey("Id");
 
@@ -484,7 +569,27 @@ namespace mgptechRestAPI.Infra.Migrations
                     b.Navigation("Ambiente");
                 });
 
+            modelBuilder.Entity("mgptechRestAPI.Domain.Entities.Ambiente", b =>
+                {
+                    b.HasOne("mgptechRestAPI.Domain.Entities.Ambiente", "Ambiente")
+                        .WithMany()
+                        .HasForeignKey("AmbienteId1");
+
+                    b.Navigation("Ambiente");
+                });
+
             modelBuilder.Entity("mgptechRestAPI.Domain.Entities.CanalComunicacao", b =>
+                {
+                    b.HasOne("mgptechRestAPI.Domain.Entities.Ambiente", "Ambiente")
+                        .WithMany()
+                        .HasForeignKey("AmbienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ambiente");
+                });
+
+            modelBuilder.Entity("mgptechRestAPI.Domain.Entities.Categoria", b =>
                 {
                     b.HasOne("mgptechRestAPI.Domain.Entities.Ambiente", "Ambiente")
                         .WithMany()
@@ -503,43 +608,13 @@ namespace mgptechRestAPI.Infra.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("mgptechRestAPI.Domain.Entities.Filial", "Filial")
-                        .WithMany()
-                        .HasForeignKey("FilialId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("mgptechRestAPI.Domain.Entities.Setor", "Setor")
-                        .WithMany()
-                        .HasForeignKey("SetorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("mgptechRestAPI.Domain.Entities.User", "UserFinish")
                         .WithMany()
                         .HasForeignKey("UserFinishId");
 
-                    b.HasOne("mgptechRestAPI.Domain.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("mgptechRestAPI.Domain.Entities.User", "UserRedirect")
-                        .WithMany()
-                        .HasForeignKey("UserRedirectId");
-
                     b.Navigation("Ambiente");
 
-                    b.Navigation("Filial");
-
-                    b.Navigation("Setor");
-
-                    b.Navigation("User");
-
                     b.Navigation("UserFinish");
-
-                    b.Navigation("UserRedirect");
                 });
 
             modelBuilder.Entity("mgptechRestAPI.Domain.Entities.Cliente", b =>
@@ -572,27 +647,9 @@ namespace mgptechRestAPI.Infra.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("mgptechRestAPI.Domain.Entities.CanalComunicacao", "CanalComunicacao")
-                        .WithMany()
-                        .HasForeignKey("CanalComunicacaoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("mgptechRestAPI.Domain.Entities.Categoria", "Categoria")
-                        .WithMany()
-                        .HasForeignKey("CategoriaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("mgptechRestAPI.Domain.Entities.Chamado", "Chamado")
                         .WithMany("Pendencias")
                         .HasForeignKey("ChamadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("mgptechRestAPI.Domain.Entities.SubCategoria", "SubCategoria")
-                        .WithMany()
-                        .HasForeignKey("SubCategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -600,23 +657,9 @@ namespace mgptechRestAPI.Infra.Migrations
                         .WithMany()
                         .HasForeignKey("UserFinishId");
 
-                    b.HasOne("mgptechRestAPI.Domain.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Ambiente");
 
-                    b.Navigation("CanalComunicacao");
-
-                    b.Navigation("Categoria");
-
                     b.Navigation("Chamado");
-
-                    b.Navigation("SubCategoria");
-
-                    b.Navigation("User");
 
                     b.Navigation("UserFinish");
                 });
@@ -656,11 +699,19 @@ namespace mgptechRestAPI.Infra.Migrations
 
             modelBuilder.Entity("mgptechRestAPI.Domain.Entities.SubCategoria", b =>
                 {
+                    b.HasOne("mgptechRestAPI.Domain.Entities.Ambiente", "Ambiente")
+                        .WithMany()
+                        .HasForeignKey("AmbienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("mgptechRestAPI.Domain.Entities.Categoria", "Categoria")
                         .WithMany()
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Ambiente");
 
                     b.Navigation("Categoria");
                 });

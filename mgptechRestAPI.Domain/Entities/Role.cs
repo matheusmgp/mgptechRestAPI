@@ -8,10 +8,13 @@ namespace mgptechRestAPI.Domain.Entities
     {
         public Role(){}
 
+        [Column("role_id")]
         public int RoleId { get; set; }
+        [Column("nome", TypeName = "varchar(50)")]
         public string Nome { get; set; }
-        public int AmbienteId { get; set; }
-        [JsonIgnore]
-        public Ambiente Ambiente { get; }
+      
+        [Column("status", TypeName = "varchar(1)")]
+        public string Status { get; set; }
+       
     }
 }
