@@ -86,7 +86,7 @@ namespace mgptechRestAPI.API.Controllers.Cadastro
 
             if (ambiente == null)
             {
-                return NotFound("Não foi possivel bsucar os dados.");
+                return NotFound("Não foi possivel buscar os dados.");
             }
 
             var ambienteDtoResponse = _mapper.Map<AmbienteDtoResponse>(ambiente);

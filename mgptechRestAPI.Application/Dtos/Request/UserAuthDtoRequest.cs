@@ -2,7 +2,7 @@
 
 namespace mgptechRestAPI.Application.Dtos.Request
 {
-    public class UserAuthDtoRequest : BaseDtoEntity
+    public class UserAuthDtoRequest //: BaseDtoEntity
     {
         [Required(ErrorMessage = "O {0} é obrigatório", AllowEmptyStrings = false)]
         [EmailAddress(ErrorMessage = "O valor não é um email válido")]

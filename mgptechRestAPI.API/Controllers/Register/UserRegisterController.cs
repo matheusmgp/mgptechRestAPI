@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mime;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using mgptechRestAPI.Application.Dtos.Request;
 using mgptechRestAPI.Application.Dtos.Response;
 using mgptechRestAPI.Domain.Core.Interfaces.Services.Register;
@@ -11,6 +6,9 @@ using mgptechRestAPI.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Net.Mime;
+using System.Threading.Tasks;
 
 namespace mgptechRestAPI.API.Controllers.Register
 {
@@ -37,7 +35,7 @@ namespace mgptechRestAPI.API.Controllers.Register
         public async Task<ActionResult<UserDtoResponse>> Authenticate(UserDtoRequest userDtoRequest)
         {
             try
-            {                
+            {
                 var user = _mapper.Map<User>(userDtoRequest);
                 var exists = await _IuserRegisterService.EmailExists(user);
 
